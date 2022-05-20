@@ -1,0 +1,180 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Brett",
+      "age": 27,
+      "gender": "Female",
+      "marks": 2,
+      "cohort": "PTWEB2"
+    },
+    {
+      "id": 2,
+      "name": "Hedvige",
+      "age": 25,
+      "gender": "Female",
+      "marks": 2,
+      "cohort": "PTWEB4"
+    },
+    {
+      "id": 3,
+      "name": "Oliver",
+      "age": "19",
+      "gender": "Male",
+      "marks": "9",
+      "cohort": "PTWEB2"
+    },
+    {
+      "id": 4,
+      "name": "Nathan",
+      "age": 27,
+      "gender": "Male",
+      "marks": 5,
+      "cohort": "PTWEB3"
+    },
+    {
+      "id": 5,
+      "name": "Mollee",
+      "age": 24,
+      "gender": "Female",
+      "marks": 4,
+      "cohort": "PTWEB1"
+    },
+    {
+      "id": 6,
+      "name": "Angelica",
+      "age": 20,
+      "gender": "Female",
+      "marks": 7,
+      "cohort": "PTWEB1"
+    },
+    {
+      "id": 7,
+      "name": "Arnoldo",
+      "age": 28,
+      "gender": "Male",
+      "marks": 5,
+      "cohort": "PTWEB1"
+    },
+    {
+      "id": 8,
+      "name": "Chery",
+      "age": 26,
+      "gender": "Female",
+      "marks": 10,
+      "cohort": "PTWEB1"
+    },
+    {
+      "id": 9,
+      "name": "Catha",
+      "age": 21,
+      "gender": "Female",
+      "marks": 2,
+      "cohort": "PTWEB2"
+    },
+    {
+      "id": 10,
+      "name": "Elvyn",
+      "age": 26,
+      "gender": "Male",
+      "marks": 3,
+      "cohort": "PTWEB3"
+    },
+    {
+      "id": 11,
+      "name": "Guinevere",
+      "age": 26,
+      "gender": "Female",
+      "marks": 4,
+      "cohort": "PTWEB3"
+    },
+    {
+      "id": 12,
+      "name": "Zorana",
+      "age": 27,
+      "gender": "Bigender",
+      "marks": 3,
+      "cohort": "PTWEB3"
+    },
+    {
+      "id": 13,
+      "name": "Tobin",
+      "age": 28,
+      "gender": "Male",
+      "marks": 10,
+      "cohort": "PTWEB4"
+    },
+    {
+      "id": 14,
+      "name": "Filippa",
+      "age": 21,
+      "gender": "Female",
+      "marks": 5,
+      "cohort": "PTWEB4"
+    },
+    {
+      "id": 15,
+      "name": "Herculie",
+      "age": 27,
+      "gender": "Male",
+      "marks": 3,
+      "cohort": "PTWEB2"
+    },
+    {
+      "id": 16,
+      "name": "Chip",
+      "age": 27,
+      "gender": "Male",
+      "marks": 5,
+      "cohort": "PTWEB4"
+    },
+    {
+      "id": 17,
+      "name": "Shelley",
+      "age": 22,
+      "gender": "Female",
+      "marks": 5,
+      "cohort": "PTWEB1"
+    },
+    {
+      "id": 18,
+      "name": "Garrot",
+      "age": 27,
+      "gender": "Male",
+      "marks": 1,
+      "cohort": "PTWEB4"
+    },
+    {
+      "id": 19,
+      "name": "Yves",
+      "age": 23,
+      "gender": "Male",
+      "marks": 7,
+      "cohort": "PTWEB4"
+    },
+    {
+      "gender": "Male",
+      "id": 20,
+      "name": "Gaurav",
+      "age": "22",
+      "marks": "10",
+      "cohort": "PTWEB4"
+    },
+    {
+      "name": "Raushan",
+      "age": "22",
+      "gender": "Male",
+      "marks": "10",
+      "cohort": "PTWEb4",
+      "id": 21
+    },
+    {
+      "name": "Sanjana",
+      "age": "22",
+      "gender": "Femele",
+      "marks": "10",
+      "cohort": "PTWEB2",
+      "id": 22
+    }
+  ]
+}

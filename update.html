@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Page</title>
+    <style>
+        #form {
+            display: grid;
+            width: 33%;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 10px;
+            margin: auto;
+
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Update Details on Database</h1>
+    <div id="form" >
+        <input type="text" id="name" placeholder="NAME">
+        <input type="text" id="age" placeholder="AGE">
+        <input type="text" id="gender" placeholder="GENDER">
+        <input type="text" id="marks" placeholder="MARKS">
+        <input type="text" id="cohort" placeholder="COHORT">
+        <input type="button" onclick="createStudent()" value="UPDATE TO DATABASE"style="background-color:black;color: white; ">
+    </div>
+</body>
+
+<script>
+    async function createStudent() {
+        try {
+            let name = document.getElementById("name").value;
+            let age = document.getElementById("age").value;
+            let gender = document.getElementById("gender").value;
+            let marks = document.getElementById("marks").value;
+            console.log(marks)
+            let cohort = document.getElementById("cohort").value;
+
+            let studentId = localStorage.getItem("studentID");
+            console.log(studentId);
+
+            let resd = await fetch(`http://localhost:3000/students/${studentId}`);
+
+            let datad=await resd.json();
+
+            let body = {
+                name: name || datad.name,
+                age: age || datad.age,
+                gender : gender || datad.gender,
+                marks: marks || datad.marks,
+                cohort: cohort || datad.cohort
+            }
+
+
+            let res = await fetch(`http://localhost:3000/students/${studentId}`, {
+                method: "PATCH",
+                body: JSON.stringify(body),
+                headers: {
+                    "Content-Type":	"application/json"
+                },
+
+            })
+            console.log(body)
+            let data = await res.json();
+            window.location.href = "index.html";
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
+</script>
+
+</html>

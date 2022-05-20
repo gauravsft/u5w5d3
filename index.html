@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Data</title>
+    <style>
+        table,th,td{
+            border: 1px solid #cecece;
+        }
+        #form{
+            display: grid;
+            width: 33%;
+            gap: 10px;
+            grid-template-columns: repeat(1,1fr);
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="form">
+        <input type="text" id="name" placeholder="NAME">
+        <input type="text" id="age" placeholder="AGE">
+        <input type="text" id="gender" placeholder="GENDER">
+        <input type="text" id="marks" placeholder="MARKS">
+        <input type="text" id="cohort" placeholder="COHORT">
+        <input type="button" onclick="createStudent()" value="ADD TO DATABASE" style="background-color:black;color: white; ">
+    </div>
+
+    <div id="container"></div>
+</body>
+
+<script>
+    let container=document.getElementById("container");
+
+    async function createStudent(){
+        try {
+            let name =document.getElementById("name").value;
+            let age =document.getElementById("age").value;
+            let gender =document.getElementById("gender").value;
+            let marks =document.getElementById("marks").value;
+            let cohort =document.getElementById("cohort").value;
+
+            let body={
+                name,
+                age,
+                gender,
+                marks,
+                cohort
+            }
+
+            let res=await fetch("http://localhost:3000/students",{
+                method:"POST",
+                body:JSON.stringify(body),
+                headers:{
+                    "content-Type":"application/json"
+                }
+            })
+
+            let data=await res.json();
+            updateDom();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async function updateDom(){
+        container.innerHTML="";
+        let table=document.createElement("table");
+
+        let thead=document.createElement("thead");
+
+        let theadRow=document.createElement("tr");
+
+        let th1=document.createElement("th");
+        th1.innerText="ID";
+        let th2=document.createElement("th");
+        th2.innerText="NAME";
+        let th3=document.createElement("th");
+        th3.innerText="AGE"
+        let th4=document.createElement("th");
+        th4.innerText="GENDER";
+        let th5=document.createElement("th");
+        th5.innerText="MARKS";
+        let th6=document.createElement("th");
+        th6.innerText="COHORT";
+        let th7=document.createElement("th");
+        th7.innerText="DELETE";
+        let th8=document.createElement("th");
+        th8.innerText="UPDATE";
+
+        theadRow.append(th1,th2,th3,th4,th5,th6,th7,th8);
+        thead.append(theadRow);
+
+
+        let res=await fetch("http://localhost:3000/students");
+        let data=await res.json();
+        let tbody=document.createElement("tbody");
+
+        data.forEach(student => {
+            let row =document.createElement("tr");
+
+            let td1=document.createElement("td");
+            td1.textContent=student.id;
+            let td2=document.createElement("td");
+            td2.innerText=student.name;
+            let td3=document.createElement("td");
+            td3.innerText=student.age;
+            let td4=document.createElement("td");
+            td4.innerText=student.gender;
+            let td5=document.createElement("td");
+            td5.innerText=student.marks;
+            let td6=document.createElement("td");
+            td6.innerText=student.cohort;
+            let td7=document.createElement("td");
+
+            let deleteButton=document.createElement("button");
+            deleteButton.innerText="DELETE";
+            deleteButton.onclick=async function(){
+                let res=await fetch(`http://localhost:3000/students/${student.id}`,{
+                    method:"DELETE"
+                })
+                updateDom();
+            }
+            td7.append(deleteButton);
+
+            let td8=document.createElement("td");
+            let updateButton=document.createElement("button");
+            updateButton.innerText="UPDATE";
+            updateButton.onclick=async function(){
+                localStorage.setItem("studentID",student.id);
+                window.location.href="update.html";
+            }
+            td8.append(updateButton);
+
+            row.append(td1,td2,td3,td4,td5,td6,td7,td8);
+            tbody.append(row);
+        });
+
+        table.append(thead,tbody);
+        container.append(table);
+        
+    }
+    updateDom();
+</script>
+</html>
